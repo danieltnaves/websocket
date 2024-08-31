@@ -12,14 +12,13 @@ public class CustomWebSocketHandler extends TextWebSocketHandler implements WebS
 
     @Override
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
-        Map<String, Object> attributes = session.getAttributes();
-        attributes.put("My-Custom-Header", "CustomHeaderValue");
         System.out.println("Connection Established: " + session.getId());
         session.sendMessage(new TextMessage("Welcome to WebSocket server!"));
     }
 
     @Override
     protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
+        // Echo the received message
         session.sendMessage(new TextMessage("Received: " + message.getPayload()));
     }
 

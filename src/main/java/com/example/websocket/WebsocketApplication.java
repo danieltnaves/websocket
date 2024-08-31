@@ -15,5 +15,4 @@ public class WebsocketApplication {
     public CustomWebSocketHandler customWebSocketHandler() {
         return new CustomWebSocketHandler();
     }
-
 }
